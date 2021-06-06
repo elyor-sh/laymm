@@ -527,7 +527,8 @@ for (let i = 0; i < baskets.length; i++) {
                 }
                 calculateTotalCost();
                 calculateCountAllProducts();
-                calculateTotalProduct()
+                calculateTotalProduct();
+                getName();
             })
 
 
@@ -663,6 +664,7 @@ for (let i = 0; i < iconHeart.length; i++) {
                         item.closest('._chosen-item').remove();
                         iconHeart[i].classList.remove('_chosen');
                         nullView();
+                        getName();
                     }
                 }
 
@@ -755,10 +757,18 @@ if (reviewsLink.length > 0 || reviewsMore.length > 0) {
 }
 
 let user = prompt("Введите свое имя", "Пользователь!");
-if (user == null) {
-    user = "Пользователь!";
+
+function getName() {
+
+
+    if (user == null) {
+        user = "Пользователь!";
+    }
+    let userName = document.querySelectorAll('.user-name');
+    [...userName].forEach(item => {
+        item.textContent = user;
+    })
+
 }
-let userName = document.querySelectorAll('.user-name');
-[...userName].forEach(item => {
-    item.textContent = user;
-})
+
+getName();
